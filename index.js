@@ -6,9 +6,9 @@ counterSeconds = document.querySelector('.mainBanner__counter__second');
 
 setInterval(() => {
     // TARGET DATE (in english please :)) //
-    const limitDate = new Date("March 2, 2022 22:00:00").getTime(),
+    const limitDate = new Date("December 24, 2022 00:00:00").getTime(),
     // ---------------------------------- //
-    
+
     now = new Date().getTime(),
     timeBetween = limitDate - now,
 
