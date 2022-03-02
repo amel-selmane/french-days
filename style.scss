@@ -1,0 +1,464 @@
+@import 'styles-utils/_mixins.scss';
+@import 'styles-utils/_variables.scss';
+@import 'styles-utils/_others.scss';
+@import 'styles-utils/_slider.scss';
+
+:root {
+    overflow-x: hidden;
+}
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    
+    li {
+        list-style: none;
+    }
+}
+
+body {
+    background-color: #f4f3f3;
+    overflow-x: hidden;
+}
+
+.mainBanner {
+    @include blueBackground;
+    text-transform: uppercase;
+
+    &__container {
+        @include flexCenterXandY;
+        @include defineWidth;
+        column-gap: 98px;
+    
+        @media screen and (max-width: $tablet) {
+            flex-direction: column;
+        }
+    }
+
+    &__logo {
+        img {
+            width: 100%;
+        }
+    }
+
+    &__counter {
+        text-align: center;
+        align-self: flex-end;
+        margin-bottom: 40px;
+
+        @media screen and (max-width: $tablet) {
+            align-self: center;
+            margin-top: -20px;
+        }
+
+        &__date {
+            color: #D8D8D8;
+            font-size: 36px;
+
+            @media screen and (max-width: $tablet) {
+                font-size: 16px;
+
+                &.mobileOnly {
+                    margin-top: 16px;
+                }
+            }
+        }
+
+        &__until {
+            color: #FFF;
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 20px;
+            letter-spacing: 0.19px;
+
+            @media screen and (max-width: $tablet) {
+                font-size: 13px;
+                margin-top: unset;
+            }
+        }
+
+        &__count {
+            display: flex;
+            column-gap: 17px;
+            text-align: center;
+            margin-top: 31px;
+
+            @media screen and (max-width: $tablet) {
+                margin-top: 11px;
+                column-gap: 8px;
+            }
+
+            // Counter numbers
+            [class$="__number"] {
+                font-size: 56px;
+                color: #4B4B4B;
+                font-weight: 800;
+                width: 100px;
+                height: 100px;
+                background-color: #FFF;
+                border-radius: 10px;
+                box-shadow: 0 0 16px 0 rgba(173, 180, 180, 0.24);
+                position: relative;
+                @include gridCenterXandY;
+
+                @media screen and (max-width: $tablet) {
+                    width: 36px;
+                    height: 36px;
+                    font-size: 18px;
+                    border-radius: 4px;
+                }
+
+                .mainBanner__counter--decoration {
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    right: 0;
+                    background-color: rgb(151, 151, 151, .5);
+                    height: 1px;
+                    box-shadow: 0 -1px 3px 1px rgb(0 0 0 / 50%);
+
+                    &::before, &::after {
+                        content: "";
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 5px;
+                        background-color: #000;
+                        height: 9px;
+                        width: 3px;
+
+                        @media screen and (max-width: $tablet) {
+                            height: 3px;
+                            width: 1px;
+                        }
+                    }
+
+                    &::after {
+                        left: unset;
+                        right: 5px;
+                    }
+                }
+            }
+
+            [class$="__label"] {
+                color: #F4F4F4;
+                font-size: 12px;
+                letter-spacing: 2px;
+                margin-top: 11px;
+
+                @media screen and (max-width: $tablet) {
+                    font-size: 6px;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+    }
+}
+
+.productPush {
+    background-color: #FFF;
+    padding-bottom: 20px;
+
+    &__container {
+        @include defineWidth;
+        @include flexCenterXandY;
+        transform: translateX(6vw);
+
+        @media screen and (max-width: $tablet) {
+            flex-direction: column;
+            transform: unset;
+        }
+    }
+
+    &__image {
+        img {
+            width: 100%;
+            margin-top: -150px;
+
+            @media screen and (max-width: $tablet) {
+                width: 75%;
+                margin-top: -23%;
+                transform: translateX(6vw);
+            }
+        }
+    }
+
+    &__info {
+        margin-top: 40px;
+
+        @media screen and (max-width: $tablet) {
+            margin-top: unset;
+            text-align: center;
+        }
+
+        &__title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #393938;
+            margin-top: 10px;
+
+            @media screen and (max-width: $tablet) {
+                font-size: 22px;
+            }
+        }
+
+        &__description {
+            color: #393938;
+            font-size: 20px;
+
+            @media screen and (max-width: $tablet) {
+                font-size: 18px;
+            }
+        }
+
+        &__buyButton {
+            color: #393938;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 26px;
+            border: unset;
+            border: solid 1px #393938;
+            background-color: #FFF;
+            padding: 11px 24px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                background-color: #393938;
+                color: #FFF;
+            }
+
+            @media screen and (max-width: $tablet) {
+                padding: 16px 20px;
+            }
+        }
+    }
+}
+
+.anchors {
+    background-color: #f4f3f3;
+    padding: 30px 0;
+    
+    @media screen and (max-width: $mobile) {
+        overflow-x: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+          
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    &__list {
+        @include flexCenterXandY;
+        column-gap: 80px;
+        font-size: 16px;
+        flex-wrap: nowrap;
+
+        @media screen and (max-width: 550px) {
+            justify-content: flex-start;
+            padding: 0 19px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+    }
+}
+
+#electroniqueSection, #hommeSection, #femmeSection, #enfantSection {
+    .introHeader {
+        @include blueBackground;
+        position: relative;
+
+        @media screen and (max-width: $tablet) {
+            padding: 0 19px;
+        }
+
+        &__container {
+            padding: 124px 19px 300px;
+            max-width: 1200px;
+            margin: 0 auto;
+
+            @media screen and (max-width: $tablet) {
+                padding: 19px 0 300px;
+            }
+        }
+
+        &__title {
+            color: #d8d8d8;
+            font-size: 40px;
+            font-weight: 500;
+            text-transform: capitalize;
+            margin-bottom: 6px;
+
+            @media screen and (max-width: $tablet) {
+                font-size: 30px;
+                font-weight: 300;
+            }
+        }
+
+        &__sticker {
+            font-size: 12px;
+            font-weight: 700;
+            color: #16365f;
+            background-color: #FFF;
+            padding: 3px 14px;
+        }
+
+        &__button {
+            margin-top: 30px;
+
+            button {
+                color: #FFF;
+                font-weight: 600;
+                font-size: 14px;
+                border-radius: 26px;
+                border: unset;
+                border: solid 1px #FFF;
+                background-color: transparent;
+                padding: 11px 24px;
+                margin-top: 20px;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: #FFF;
+                    color: #393938;
+                }
+    
+                @media screen and (max-width: $tablet) {
+                    padding: 16px 20px;
+                }
+            }
+        }
+
+        &::before {
+            content: "";
+            background-image: url(assets/coq.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            position: absolute;
+            bottom: 50px;
+            left: 35%;
+            width: 250px;
+            height: 250px;
+            transform: scaleX(-1);
+
+            @media screen and (max-width: $tablet) {
+                width: 135px;
+                height: 135px;
+                bottom: 170px;
+                left: 40%;
+            }
+        }
+    }
+
+    .swiper {
+        &-slide {
+            img {
+                margin-top: 30px;
+            }
+
+            p {
+                &:first-of-type {
+                    text-align: right;
+                }
+
+                &:nth-of-type(2) {
+                    font-size: 12px;
+                    margin-top: 20px;
+                }
+
+                &:nth-of-type(3) {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                &.old-and-newPrice {
+                    font-size: 20px;
+        
+                    span {
+                        font-size: 14px;
+                        margin-right: unset;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#hommeSection, #femmeSection, #enfantSection {
+    margin-top: 102px;
+}
+
+#hommeSection, #enfantSection {
+    .introHeader::before {
+        left: unset;
+        right: 10%;
+        transform: scaleX(1);
+    }       
+}
+
+.warranty {
+    margin-top: 102px;
+    background-color: #FFF;
+    padding: 50px 0;
+
+    &__container {
+        @include defineWidth;
+    }
+
+    &__title {
+        font-size: 32px;
+        text-align: center;
+        color: #164194;
+        font-weight: 600;
+
+        img {
+            max-width: 200px;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 35px;
+        text-align: center;
+        row-gap: 35px;
+
+        li {
+            width: calc(100% / 4);
+
+            @media screen and (max-width: $tablet) {
+                width: calc(100% / 2);
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__text {
+        font-size: 16px;
+        color: #164194;
+        min-height: 40px;
+        margin: 0 auto;
+    }
+
+    &__description {
+        font-size: 14px;
+        color: #000;
+        margin-top: 12px;
+        max-width: 75%;
+        margin: 12px auto 0;
+    }
+}

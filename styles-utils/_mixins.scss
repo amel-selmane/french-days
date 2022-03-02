@@ -1,0 +1,21 @@
+@mixin flexCenterXandY {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin gridCenterXandY {
+    display: grid;
+    place-content: center;
+}
+
+@mixin defineWidth {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@mixin blueBackground {
+    background-image: url('assets/header-background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
