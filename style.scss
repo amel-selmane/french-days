@@ -27,15 +27,6 @@ body {
     @include blueBackground;
     text-transform: uppercase;
 
-    &__container {
-        @include flexCenterXandY;
-        @include defineWidth;
-        column-gap: 98px;
-    
-        @media screen and (max-width: $tablet) {
-            flex-direction: column;
-        }
-    }
 
     &__logo {
         img {
@@ -79,7 +70,7 @@ body {
             }
         }
 
-        &__count {
+        .countdown {
             display: flex;
             column-gap: 17px;
             text-align: center;
@@ -90,27 +81,32 @@ body {
                 column-gap: 8px;
             }
 
-            // Counter numbers
-            [class$="__number"] {
-                font-size: 56px;
-                color: #4B4B4B;
-                font-weight: 800;
-                width: 100px;
-                height: 100px;
-                background-color: #FFF;
-                border-radius: 10px;
-                box-shadow: 0 0 16px 0 rgba(173, 180, 180, 0.24);
+            &__group {
                 position: relative;
-                @include gridCenterXandY;
 
-                @media screen and (max-width: $tablet) {
-                    width: 36px;
-                    height: 36px;
-                    font-size: 18px;
-                    border-radius: 4px;
+                // Counter numbers
+                [class$='Value'] {
+                    font-size: 56px;
+                    color: #4B4B4B;
+                    font-weight: 800;
+                    width: 100px;
+                    height: 100px;
+                    background-color: #FFF;
+                    border-radius: 10px;
+                    box-shadow: 0 0 16px 0 rgba(173, 180, 180, 0.24);
+                    position: relative;
+                    @include gridCenterXandY;
+    
+                    @media screen and (max-width: $tablet) {
+                        width: 36px;
+                        height: 36px;
+                        font-size: 18px;
+                        border-radius: 4px;
+                    }
+    
                 }
-
-                .mainBanner__counter--decoration {
+                
+                .countdown--decoration {
                     position: absolute;
                     top: 50%;
                     left: 0;
@@ -142,7 +138,7 @@ body {
                 }
             }
 
-            [class$="__label"] {
+            &__label {
                 color: #F4F4F4;
                 font-size: 12px;
                 letter-spacing: 2px;
@@ -160,17 +156,6 @@ body {
 .productPush {
     background-color: #FFF;
     padding-bottom: 20px;
-
-    &__container {
-        @include defineWidth;
-        @include flexCenterXandY;
-        transform: translateX(6vw);
-
-        @media screen and (max-width: $tablet) {
-            flex-direction: column;
-            transform: unset;
-        }
-    }
 
     &__image {
         img {

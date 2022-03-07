@@ -50,3 +50,14 @@
         }
     }
 }
+
+// French Days Container
+.fdContainer {
+    @include flexCenterXandY;
+    @include defineWidth;
+    column-gap: 98px;
+
+    @media screen and (max-width: $tablet) {
+        flex-direction: column;
+    }
+}
