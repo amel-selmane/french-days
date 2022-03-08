@@ -157,6 +157,14 @@ body {
     background-color: #FFF;
     padding-bottom: 20px;
 
+    .fdContainer {
+        transform: translateX(6vw);
+
+        @media screen and (max-width: $tablet) {
+            transform: unset;
+        }
+    }
+
     &__image {
         img {
             width: 100%;
