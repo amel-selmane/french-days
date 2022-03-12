@@ -134,6 +134,7 @@ body {
   background-image: url("assets/header-background.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
   text-transform: uppercase;
 }
 .mainBanner__logo img {
@@ -368,6 +369,7 @@ body {
   background-image: url("assets/header-background.jpg");
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
   position: relative;
 }
 @media screen and (max-width: 1100px) {
